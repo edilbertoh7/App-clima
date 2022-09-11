@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { CityLocation } from "./CityLocation";
+import { DegreeSection } from "./DegreeSection";
+import { DetailsTable } from "./DetailsTable";
 
 export const WeatherContainer = ({
     fetchedData, error
@@ -12,7 +14,7 @@ export const WeatherContainer = ({
         city: "",
         country: "",
         temperature: 0,
-        descripcion: "",
+        description: "",
         icon: "",
         humidity: "",
         feels: "",
@@ -24,12 +26,12 @@ export const WeatherContainer = ({
     });
 
     useEffect(() => {
-        if (fetchedData) {
+        if (fetchedData) //{
             setWeather({
                 city: fetchedData.name,
                 country: fetchedData.sys.country,
                 temperature: Math.floor(fetchedData.main.temp - 273),
-                descripcion: fetchedData.weather[0].description,
+                description: fetchedData.weather[0].description,
                 icon: `https://openweathermap.org/img/wn/${fetchedData.weather[0].icon}@2x.png`,
                 humidity: fetchedData.main.humidity + "%",
                 feels: Math.floor(fetchedData.main.feels_like - 273) + "°C",
@@ -39,15 +41,15 @@ export const WeatherContainer = ({
                 latitude: fetchedData.coord.lat,
                 windSpeed: fetchedData.wind.speed + "m/s",
             });
-        }
+        //}
 
     }, [fetchedData])
     return (
         <main className="w-96 rounded-3xl bg-gradient-to-b from-gray-800 to-gray-400 shadow-lg">
             <div className="flex w-full items-center flex-col p-8">
-                <CityLocation />
-                <h1>Grados</h1>
-                <h1>Tabla de Información</h1>
+                <CityLocation data={ weather } />
+                <DegreeSection data={ weather } />
+                <DetailsTable data={ weather } />
             </div>
         </main>
     )
