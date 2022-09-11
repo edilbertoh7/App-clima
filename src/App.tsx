@@ -1,3 +1,4 @@
+import { WeatherContainer } from "./components/WeatherContainer"
 
 
 
@@ -5,8 +6,8 @@ function App() {
  
 
   return (
-    <div className="App">
-      <h1>hola mundo</h1>
+    <div className="w-full h-screen flex  justify-center items-center ">
+      <WeatherContainer/>
     </div>
   )
 }
