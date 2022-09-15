@@ -19,14 +19,14 @@ body {
 
 input {
   position: absolute;
-  width: 260px;
-  height: 33px;
+  width: 380px;
+  height: 43px;
   outline: none;
   border: 1px solid #9bf;
-  border-radius: 5px;
+  border-radius: 100px;
   background-color: #eff;
   padding: 12px;
-  font-size: 15px;
+  font-size: 20px;
   color: #444;
   top: 5vh;
   transform: translate(-50%, -50%);
